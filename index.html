@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>NASSA — IT Solutions Managers</title>
+<meta name="description" content="NASSA — a team of IT solutions managers making company IT digestible and optimized for your day-to-day activities." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0a0a0f;
+    --surface:#121219;
+    --surface-2:#191922;
+    --line:#26262f;
+    --text:#f4f4f6;
+    --muted:#9a9aa8;
+    --accent:#6c5ce7;
+    --accent-2:#00d4a0;
+    --radius:18px;
+    --max:1100px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    font-family:'Inter',system-ui,-apple-system,sans-serif;
+    background:var(--bg);color:var(--text);
+    -webkit-font-smoothing:antialiased;line-height:1.6;
+  }
+  a{color:inherit}
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 24px}
+
+  nav{position:sticky;top:0;z-index:50;backdrop-filter:blur(14px);
+      background:rgba(10,10,15,.8);border-bottom:1px solid var(--line)}
+  .nav-inner{display:flex;align-items:center;justify-content:space-between;height:64px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.06em}
+  .dot{width:11px;height:11px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+  .nav-links{display:flex;gap:26px;font-size:.92rem;color:var(--muted)}
+  .nav-links a{text-decoration:none;transition:color .2s}
+  .nav-links a:hover{color:var(--text)}
+  @media(max-width:760px){.nav-links{display:none}}
+
+  header.hero{position:relative;overflow:hidden;padding:104px 0 88px;border-bottom:1px solid var(--line)}
+  header.hero::before{
+    content:"";position:absolute;inset:-40% 15% auto -10%;height:640px;
+    background:radial-gradient(45% 45% at 28% 40%,rgba(108,92,231,.38),transparent 70%),
+               radial-gradient(40% 40% at 72% 28%,rgba(0,212,160,.22),transparent 70%);
+    filter:blur(8px);pointer-events:none;
+  }
+  .hero-content{position:relative}
+  .pill{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);
+        background:var(--surface);padding:7px 14px;border-radius:999px;font-size:.78rem;
+        color:var(--muted);letter-spacing:.06em;text-transform:uppercase;font-weight:600}
+  h1{font-size:clamp(2.6rem,6.5vw,4.5rem);line-height:1.04;letter-spacing:-.035em;
+     font-weight:800;margin:22px 0 18px;max-width:16ch}
+  .grad{background:linear-gradient(120deg,var(--accent) 5%,var(--accent-2) 95%);
+        -webkit-background-clip:text;background-clip:text;color:transparent}
+  .lede{font-size:1.14rem;color:var(--muted);max-width:60ch}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;margin-top:34px}
+  .btn{display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;
+       text-decoration:none;font-weight:600;font-size:.95rem;transition:transform .15s}
+  .btn:hover{transform:translateY(-2px)}
+  .btn-primary{background:linear-gradient(120deg,var(--accent),#8f7bff);color:#fff}
+  .btn-ghost{border:1px solid var(--line);background:var(--surface);color:var(--text)}
+
+  section{padding:86px 0;border-bottom:1px solid var(--line)}
+  .eyebrow{font-size:.76rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;
+           color:var(--accent-2);margin-bottom:12px}
+  h2{font-size:clamp(1.9rem,3.6vw,2.7rem);letter-spacing:-.03em;font-weight:800;margin-bottom:14px}
+  .section-lede{color:var(--muted);max-width:64ch;margin-bottom:44px}
+
+  .grid{display:grid;gap:18px}
+  .g3{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+  .g2{grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);
+        padding:26px;transition:border-color .2s,transform .2s,background .2s}
+  .card:hover{border-color:#3a3a4a;transform:translateY(-3px);background:var(--surface-2)}
+  .card.pending{border-style:dashed;opacity:.72}
+  .avatar{width:52px;height:52px;border-radius:14px;display:grid;place-items:center;
+          font-weight:800;font-size:1.05rem;color:#fff;margin-bottom:16px;
+          background:linear-gradient(135deg,var(--accent),var(--accent-2))}
+  .avatar.ghost{background:var(--surface-2);border:1px dashed var(--line);color:var(--muted)}
+  .card h3{font-size:1.12rem;font-weight:700;letter-spacing:-.01em}
+  .role{color:var(--accent-2);font-size:.85rem;font-weight:600;margin:3px 0 12px}
+  .card p{color:var(--muted);font-size:.94rem}
+  .tags{display:flex;flex-wrap:wrap;gap:7px;margin-top:16px}
+  .tag{font-size:.74rem;font-weight:600;padding:5px 10px;border-radius:999px;
+       background:rgba(108,92,231,.14);color:#b7acff;border:1px solid rgba(108,92,231,.28)}
+  .status{font-size:.74rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+          color:var(--muted);border:1px solid var(--line);padding:4px 10px;border-radius:999px;
+          display:inline-block;margin-bottom:12px}
+
+  .what{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px;margin-top:44px}
+  .what .card h3{font-size:1rem;margin-bottom:6px}
+  .step{font-size:.74rem;font-weight:800;letter-spacing:.1em;color:var(--accent);margin-bottom:8px}
+
+  .timeline{position:relative;margin-top:18px;padding-left:26px}
+  .timeline::before{content:"";position:absolute;left:6px;top:8px;bottom:8px;width:2px;
+                    background:linear-gradient(180deg,var(--accent),var(--accent-2))}
+  .tl-item{position:relative;padding:0 0 26px 14px}
+  .tl-item::before{content:"";position:absolute;left:-26px;top:7px;width:14px;height:14px;
+                   border-radius:50%;background:var(--bg);border:3px solid var(--accent)}
+  .tl-item.future::before{border-color:var(--line)}
+  .tl-item span{font-size:.8rem;color:var(--accent-2);font-weight:600}
+  .tl-item h4{font-size:1.02rem;font-weight:700}
+  .tl-item p{color:var(--muted);font-size:.93rem;margin-top:4px}
+
+  footer{padding:54px 0;color:var(--muted);font-size:.9rem}
+  .foot-inner{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="wrap nav-inner">
+    <div class="brand"><span class="dot"></span>NASSA</div>
+    <div class="nav-links">
+      <a href="#team">Team</a>
+      <a href="#individual">Individual work</a>
+      <a href="#teamwork">Team work</a>
+    </div>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-content">
+    <span class="pill">Senior Management &amp; Information Technologies</span>
+    <h1>IT, made <span class="grad">digestible</span>.</h1>
+    <p class="lede">NASSA is a team of IT solutions managers. We take the technology a company already runs on, translate it into language people actually understand, and tune it around the day-to-day work it is supposed to support.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#teamwork">See our results</a>
+      <a class="btn btn-ghost" href="#team">Meet the team</a>
+    </div>
+  </div>
+</header>
+
+<!-- ===== 1. TEAM PRESENTATION ===== -->
+<section id="team">
+  <div class="wrap">
+    <p class="eyebrow">Section 01</p>
+    <h2>Team presentation</h2>
+    <p class="section-lede">We are NASSA, a team working as IT solutions managers for the Senior Management and Information Technologies course. Our focus is making a company's IT digestible for the people who use it, and optimizing it around their everyday activities rather than around the technology itself.</p>
+
+    <div class="grid g3">
+      <div class="card">
+        <div class="avatar">MI</div>
+        <h3>Maria Ines Lonzoy</h3>
+        <p class="role">Marketing Strategies</p>
+        <p>Business-solutions and innovation oriented.</p>
+        <div class="tags"><span class="tag">Problem solving</span><span class="tag">Environment understanding</span></div>
+      </div>
+
+      <div class="card">
+        <div class="avatar">AA</div>
+        <h3>Alanood Altuwaijri</h3>
+        <p class="role">Communicator &amp; Builder</p>
+        <p>Diplomatic communicator and a great listener who gets things done.</p>
+        <div class="tags"><span class="tag">AI tools</span><span class="tag">Computer skills</span></div>
+      </div>
+
+      <div class="card pending">
+        <div class="avatar ghost">+</div>
+        <h3>Joining soon</h3>
+        <p class="role">Member</p>
+        <p>The rest of the team will be introduced here.</p>
+      </div>
+    </div>
+
+    <div class="what">
+      <div class="card">
+        <p class="step">01</p>
+        <h3>Understand the environment</h3>
+        <p>We start from how the company actually works — its people, its routines and its constraints — before touching any system.</p>
+      </div>
+      <div class="card">
+        <p class="step">02</p>
+        <h3>Translate the IT</h3>
+        <p>We turn technical systems and reports into something a manager can read, question and decide on without a technical background.</p>
+      </div>
+      <div class="card">
+        <p class="step">03</p>
+        <h3>Optimize the day-to-day</h3>
+        <p>We tune tools and processes around the tasks people repeat every day, so technology saves time instead of adding steps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 2. INDIVIDUAL WORK AREA ===== -->
+<section id="individual">
+  <div class="wrap">
+    <p class="eyebrow">Section 02</p>
+    <h2>Individual work area</h2>
+    <p class="section-lede">Individual assignments, contributions and reflections from each member of NASSA.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <span class="status">In progress</span>
+        <h3>Maria Ines Lonzoy</h3>
+        <p class="role">Marketing Strategies</p>
+        <p>Individual work will be published here as it is completed.</p>
+      </div>
+      <div class="card">
+        <span class="status">In progress</span>
+        <h3>Alanood Altuwaijri</h3>
+        <p class="role">Communicator &amp; Builder</p>
+        <p>Individual work will be published here as it is completed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== 3. TEAM WORK AREA ===== -->
+<section id="teamwork">
+  <div class="wrap">
+    <p class="eyebrow">Section 03</p>
+    <h2>Team work area</h2>
+    <p class="section-lede">Shared deliverables, sessions and results the team produces together.</p>
+
+    <div class="grid g2">
+      <div class="card">
+        <span class="status">Upcoming</span>
+        <h3>Team deliverable 01</h3>
+        <p>Title, description and link will be added once the first team assignment is delivered.</p>
+      </div>
+      <div class="card">
+        <span class="status">Upcoming</span>
+        <h3>Team deliverable 02</h3>
+        <p>Title, description and link will be added once the second team assignment is delivered.</p>
+      </div>
+    </div>
+
+    <h3 style="margin:48px 0 18px;font-size:1.25rem;font-weight:700;">Progress</h3>
+    <div class="timeline">
+      <div class="tl-item">
+        <span>September 2026</span>
+        <h4>Team formed</h4>
+        <p>NASSA comes together for the Senior Management and Information Technologies course and defines its positioning as IT solutions managers.</p>
+      </div>
+      <div class="tl-item">
+        <span>September 2026</span>
+        <h4>Team site published</h4>
+        <p>This page goes live on GitHub Pages with the three required areas and is linked from the team Dashboard tab.</p>
+      </div>
+      <div class="tl-item future">
+        <span>Next</span>
+        <h4>First deliverables</h4>
+        <p>Individual and team assignments are added to their areas as they are completed.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-inner">
+    <span>© <span id="yr"></span> NASSA — Senior Management &amp; Information Technologies</span>
+    <span>Published with GitHub Pages</span>
+  </div>
+</footer>
+
+<script>document.getElementById('yr').textContent = new Date().getFullYear();</script>
+</body>
+</html>
