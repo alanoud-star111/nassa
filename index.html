@@ -106,6 +106,19 @@
   .tl-item h4{font-size:1.02rem;font-weight:700}
   .tl-item p{color:var(--muted);font-size:.93rem;margin-top:4px}
 
+  .acts{display:flex;flex-direction:column;gap:12px}
+  .act{display:grid;grid-template-columns:130px 1fr auto;gap:18px;align-items:center;
+       background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 20px;
+       transition:border-color .2s,background .2s}
+  .act:hover{border-color:#3a3a4a;background:var(--surface-2)}
+  .act-date{font-size:.85rem;font-weight:700;color:var(--accent-2);font-variant-numeric:tabular-nums}
+  .act h3{font-size:1rem;font-weight:700}
+  .act p{color:var(--muted);font-size:.86rem}
+  .act .open{font-size:.85rem;font-weight:600;text-decoration:none;white-space:nowrap;
+             border:1px solid var(--line);padding:8px 14px;border-radius:10px;background:var(--bg)}
+  .act .open:hover{border-color:var(--accent)}
+  @media(max-width:600px){.act{grid-template-columns:1fr;gap:6px}.act .open{justify-self:start;margin-top:6px}}
+
   footer{padding:54px 0;color:var(--muted);font-size:.9rem}
   .foot-inner{display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;align-items:center}
 </style>
@@ -260,16 +273,37 @@
     <h2>Team work area</h2>
     <p class="section-lede">Shared deliverables, sessions and results the team produces together.</p>
 
-    <div class="grid g2">
-      <div class="card">
-        <span class="status">Upcoming</span>
-        <h3>Team deliverable 01</h3>
-        <p>Title, description and link will be added once the first team assignment is delivered.</p>
+    <h3 style="margin:0 0 18px;font-size:1.25rem;font-weight:700;">Team 5 activity list</h3>
+    <div class="acts">
+      <div class="act">
+        <span class="act-date">Thu 10 Sep 2026</span>
+        <div><h3>In-class activity</h3><p>Group 5 · Canva</p></div>
+        <a class="open" href="https://canva.link/ah57xze1tgq41t0" target="_blank" rel="noopener">Open ↗</a>
       </div>
-      <div class="card">
-        <span class="status">Upcoming</span>
-        <h3>Team deliverable 02</h3>
-        <p>Title, description and link will be added once the second team assignment is delivered.</p>
+      <div class="act">
+        <span class="act-date">Tue 15 Sep 2026</span>
+        <div><h3>In-class activity</h3><p>Group 5 · Canva</p></div>
+        <a class="open" href="https://canva.link/pq3wf5dka3199p1" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <div class="act">
+        <span class="act-date">Wed 16 Sep 2026</span>
+        <div><h3>Mural board</h3><p>Group 5 · Mural</p></div>
+        <a class="open" href="https://app.mural.co/t/anhelina0182/m/anhelina0182/1790079088908/820ded22f8efebba170656e1b03d387ab8170208" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <div class="act">
+        <span class="act-date">Tue 22 Sep 2026</span>
+        <div><h3>Team website</h3><p>Group 5 · This site · GitHub Pages</p></div>
+        <a class="open" href="https://alanoud-star111.github.io/nassa/?v=8" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <div class="act">
+        <span class="act-date">Thu 1 Oct 2026</span>
+        <div><h3>Mural board — Spotify</h3><p>Group 5 · Mural</p></div>
+        <a class="open" href="https://app.mural.co/t/anhelina0182/m/anhelina0182/1790079088908/820ded22f8efebba170656e1b03d387ab8170208" target="_blank" rel="noopener">Open ↗</a>
+      </div>
+      <div class="act">
+        <span class="act-date">Tue 6 Oct 2026</span>
+        <div><h3>Business case</h3><p>Group 5 · Canva</p></div>
+        <a class="open" href="https://canva.link/pkgup3n07cbd1vt" target="_blank" rel="noopener">Open ↗</a>
       </div>
     </div>
 
@@ -285,10 +319,15 @@
         <h4>Team site published</h4>
         <p>This page goes live on GitHub Pages with the three required areas and is linked from the team Dashboard tab.</p>
       </div>
+      <div class="tl-item">
+        <span>September – October 2026</span>
+        <h4>First deliverables</h4>
+        <p>In-class activities, Mural boards, the team website and the first business case are listed in the activity list above.</p>
+      </div>
       <div class="tl-item future">
         <span>Next</span>
-        <h4>First deliverables</h4>
-        <p>Individual and team assignments are added to their areas as they are completed.</p>
+        <h4>More deliverables</h4>
+        <p>New team activities are added to the list as they are completed.</p>
       </div>
     </div>
   </div>
